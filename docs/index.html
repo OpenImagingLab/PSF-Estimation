@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+  <title>A Physics-Informed Blur Learning Framework for Imaging Systems</title>
+  <link rel="icon" type="image/x-icon" href="static/images/icon_new.png">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">A Physics-Informed Blur Learning Framework for Imaging Systems</h1>
+            <!-- <h3 class="title is-2 publication-conf", style="color: grey;">arXiv 2024</h3> -->
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://github.com/xjcclq" target="_blank">Liqun Chen</a><sup>1</sup>,</span>
+                <span class="author-block">
+                  <a href="https://github.com/Liyuxuan2000" target="_blank">Yuxuan Li</a><sup>1</sup>,</span>
+                <span class="author-block">
+                  <a href="https://daijun10086.github.io/" target="_blank">Jun Dai</a><sup>1</sup>,</span>
+                <span class="author-block">
+                  <a href="https://www.gujinwei.org/" target="_blank">Jinwei Gu</a><sup>2</sup>,</span>
+                  <span class="author-block">
+                    <a href="https://tianfan.info/" target="_blank">Tianfan Xue</a><sup>3,1</sup>
+                  </span>
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block"><sup>1</sup>Shanghai AI Laboratory, </span>
+                    <span class="author-block"><sup>2</sup>NVIDIA, <sup>3</sup> The Chinese University of Hong Kong </span>
+                    <!-- <span class="eql-cntrb"><small><br><sup>*</sup>indicates equal contributions, <sup>†</sup>indicates corresponding author</small></span> -->
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                      <!-- PDF Link. -->
+                      <span class="link-block">
+                        <a href="https://arxiv.org/abs/2502.04719"
+                           class="external-link button is-normal is-rounded is-dark">
+                          <span class="icon">
+                              <i class="fas fa-file-pdf"></i>
+                          </span>
+                          <span>Paper</span>
+                        </a>
+                      </span>
+                      <!-- Code Link. -->
+                      <span class="link-block">
+                        <a href="https://github.com/OpenImagingLab/PSF-Estimation"
+                           class="external-link button is-normal is-rounded is-dark">
+                          <span class="icon">
+                              <i class="fab fa-github"></i>
+                          </span>
+                          <span>Code</span>
+                          </a>
+                      </span>
+                    </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <!-- 插入视频 -->
+      <video id="teaser" muted loop playsinline height="100%">
+        <source src="static/videos/teaser.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <h2 class="subtitle has-text-centered">
+      </h2>
+      <button id="toggle-sound" style="margin-top: -10 px;">Turn Sound On</button>
+    </div>
+  </div>
+</section>
+
+<script>
+  const video = document.getElementById('teaser');
+  const button = document.getElementById('toggle-sound');
+
+  video.addEventListener('click', () => {
+    if (video.paused) {
+      video.play();
+    } else {
+      video.pause();
+    }
+  });
+
+  button.addEventListener('click', () => {
+    video.muted = !video.muted;
+    button.textContent = video.muted ? 'Turn Sound On' : 'Turn Sound Off';
+  });
+</script>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-4">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+          Accurate blur estimation is essential for high-performance imaging across various applications. Blur is typically represented by the point spread function (PSF). In this paper, we propose a physics-informed PSF learning framework for imaging systems, consisting of a simple calibration followed by a learning process. Our framework could achieve both high accuracy and universal applicability. Inspired by the Seidel PSF model for representing spatially varying PSF, we identify its limitations in optimization and introduce a novel wavefront-based PSF model accompanied by an optimization strategy, both reducing optimization complexity and improving estimation accuracy. Moreover, our wavefront-based PSF model is independent of lens parameters, eliminate the need for prior knowledge of the lens. To validate our approach, we compare it with recent PSF estimation methods (Degradation Transfer and Fast Two-step) through a deblurring task, where all the estimated PSFs are used to train state-of-the-art deblurring algorithms. Our approach demonstrates improvements in image quality in simulation and also showcases noticeable visual quality improvements on real captured images.
+          <p></p>
+          <p></p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Main Idea. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-4">Main Idea</h2>
+        <div class="content has-text-justified">
+<!--          <img id="ablation" src="static/images/pipeline.png" alt="Ablation Image" style="width:120%; height: auto;">-->
+          <strong style="color:#2f5faf;">How we accurately estimate a multi-dimensional PSF :</strong>
+          <ul>
+            <li> Two-step PSF estimation framework. The first step is dedicated to learning spatially variant monochromatic aberration by aligning with the measured spatial frequency response curves. The second step focuses on learning PSF shifts across channels, utilizing the measured chromatic area difference data.</li>
+          <figure style="text-align:center;">
+            <img id="ablation" src="static/images/pipeline.png" alt="Ablation Image" style="width:120%; height: auto;">
+            <figcaption style="font-size:0.9em; color:#555;">
+              Diagram of the proposed two-step PSF estimation framework.
+            </figcaption>
+          </figure>
+            <li> A novel wavefront-based PSF model that simplifies optimization and improves estimation accuracy. In the Seidel PSF model (left), the spherical aberration basis creates a circular PSF with 360° blur, causing identical SFR in the 0° and 90° directions, resulting in gradient conflicts. Our model addresses this by affecting the SFR in one direction, allowing independent adjustment of coefficients to better match the measured SFR. </li>
+          <figure style="text-align:center;">
+            <img id="ablation" src="static/images/wf_basis.png" alt="Ablation Image" style="width: 100%; height: auto;">
+            <figcaption style="font-size:0.9em; color:#555;">
+              A toy example showing how the proposed PSF model improves estimation accuracy.
+            </figcaption>
+          </figure>
+          </ul>
+          <p></p>
+          <p></p>
+        </div>
+      </div>
+    </div>
+    <!--/ Main Idea. -->
+
+
+<div class="columns is-centered has-text-centered">
+  <div class="column is-full">
+    <!-- Comparison Experiment -->
+    <h2 class="title is-4">Comparison Experiment</h2>
+    <div class="content has-text-justified">
+      <ul>
+        <li>
+          <strong>PSF Accuracy:</strong> As shown below, PSF estimates using Degradation Transfer (ICCV 2021), Fast Two-step (ECCV 2022), and our method, compared with the ground truth PSF.
+          <figure style="text-align:center;">
+            <img id="psf_comparison" src="static/images/psf_compare.png" alt="PSF Comparison" style="width:110%; height:auto;">
+            <figcaption style="font-size:0.9em; color:#555;">
+              Estimated PSFs and ground truth.
+            </figcaption>
+          </figure>
+        </li>
+        <li>
+          <strong>Deblurring Performance Comparison:</strong> As shown below, from left to right: sharp output image deblurred by the pre-trained Restormer, using training data synthesized from our estimated PSF; real captured image patches from a custom-built imaging system (Edmund Lens: #63762 and onsemi AR1820HS sensor); deblurred image patches from pre-trained Restormers using data synthesized with estimated PSFs from Degradation Transfer (ICCV 2021), Fast Two-step (ECCV 2022), and our approach. MUSIQ↑ / MANIQA↑ scores are shown in the bottom-right corner.
+          <figure style="text-align:center;margin-top: -50 px;">
+            <img id="deblurring_comparison" src="static/images/exp1.png" alt="Deblurring Comparison" style="width:110%; height:auto;">
+            <figcaption style="font-size:0.9em; color:#555;margin-top: -50 px;">
+              Performance comparison with state-of-the-art methods on real captures.
+            </figcaption>
+          </figure>
+        </li>
+      </ul>
+    </div>
+    <!--/ Comparison Experiment -->
+  </div>
+</div>
+
+
+
+
+
+    <!--/ Comparison. -->
+
+    <!-- More Results. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-4">More Results</h2>
+        <div class="content has-text-justified">
+
+          <figure style="text-align:center;">
+            <img id="ablation" src="static/images/exp2.png" alt="Ablation Image" style="width: 120%; height: auto;">
+            <figcaption style="font-size:0.9em; color:#555;">
+              Deblurring results for an outdoor scene captured with a Canon EOS600D camera. From left to right: sharp output produced by our method, comparison patches (top: captured patches, bottom: patches deblurred by our method using Restormer).
+            </figcaption>
+          </figure>
+
+          <figure style="text-align:center;">
+            <img id="ablation" src="static/images/defocus.png" alt="Ablation Image" style="width: 100%; height: auto;">
+            <figcaption style="font-size:0.9em; color:#555;">
+              Original capture (left) taken with a Canon EOS 600D at a focal length of 55mm, a focal distance of 1m, and an object distance of 5m, alongside the deblurred output (right).
+            </figcaption>
+          </figure>
+
+          <p></p>
+          <p></p>
+        </div>
+      </div>
+    </div>
+    <!--/More Results. -->
+
+  </div>
+</section>
+
+
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{dai2025toleranceawaredeepoptics,
+      title={Tolerance-Aware Deep Optics}, 
+      author={Jun Dai and Liqun Chen and Xinge Yang and Yuyao Hu and Jinwei Gu and Tianfan Xue},
+      journal={arXiv preprint arXiv:2502.04719},
+      year={2025}
+}</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
+
