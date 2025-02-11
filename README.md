@@ -6,6 +6,6 @@
 Liqun Chen, Yuxuan Li, Jun Dai, Jinwei Gu, Tianfan Xue <br>
 arXiv 2025 <br><br>
 
-![teaser](https://github.com/OpenImagingLab/PSF-Estimation/tree/main/docs/static/videos/teaser.mp4)
+![teaser](./docs/static/videos/teaser.mp4)
 A brief introduction.
 
