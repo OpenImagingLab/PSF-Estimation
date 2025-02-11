@@ -6,13 +6,6 @@
 Liqun Chen, Yuxuan Li, Jun Dai, Jinwei Gu, Tianfan Xue <br>
 arXiv 2025 <br><br>
 
-![teaser](./docs/static/videos/teaser.mp4)
+![teaser](https://github.com/OpenImagingLab/PSF-Estimation/tree/main/docs/static/videos/teaser.mp4)
 A brief introduction.
 
-## Installation
-We implemented our tolerance-aware optimization framework based on [dO](https://github.com/vccimaging/DiffOptics) and [DeepLens](https://github.com/singer-yang/DeepLens). We make the ray tracing framework consider the effect of **Tolerances**.
-
-### 0. Set up the Python environment
-```
-conda create
-```
