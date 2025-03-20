@@ -1,6 +1,4 @@
-<p align="center">
-  <img src="https://img.shields.io/badge/A_Physics_Informed_Blur_Learning_Framework_for_Imaging_Systems-007CF0_7928CA?style=for-the-badge&logo=github&logoColor=white" alt="Title">
-</p>
+<h1 align="center"> A Physics-Informed Blur Learning Framework for Imaging Systems </h1>
 <p align="center" style="font-size:18px;">
   <a href="https://arxiv.org/abs/2502.11382"><b>📜 Paper</b></a> &nbsp;  
   <a href="https://github.com/OpenImagingLab/PSF-Estimation"><b>💻 Code</b></a> &nbsp;  
