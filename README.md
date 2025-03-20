@@ -1,4 +1,4 @@
-<h1 align="center"> A Physics-Informed Blur Learning Framework for Imaging Systems </h1>
+<h1 align="center">[CVPR2025] A Physics-Informed Blur Learning Framework for Imaging Systems </h1>
 <p align="center" style="font-size:18px;">
   <a href="https://arxiv.org/abs/2502.11382"><b>📜 Paper</b></a> &nbsp;  
   <a href="https://github.com/OpenImagingLab/PSF-Estimation"><b>💻 Code</b></a> &nbsp;  
