@@ -86,17 +86,54 @@
 </section>
 
 
+<!--<section class="hero teaser">-->
+<!--  <div class="container is-max-desktop">-->
+<!--    <div class="hero-body">-->
+<!--      &lt;!&ndash; 插入视频 &ndash;&gt;-->
+<!--      <video id="teaser" muted loop playsinline height="100%">-->
+<!--        <source src="static/videos/teaser.mp4" type="video/mp4">-->
+<!--        Your browser does not support the video tag.-->
+<!--      </video>-->
+<!--      <h2 class="subtitle has-text-centered">-->
+<!--      </h2>-->
+<!--      <button id="toggle-sound" style="margin-top: -10 px;">Turn Sound On</button>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+
+<!--<script>-->
+<!--  const video = document.getElementById('teaser');-->
+<!--  const button = document.getElementById('toggle-sound');-->
+
+<!--  video.addEventListener('click', () => {-->
+<!--    if (video.paused) {-->
+<!--      video.play();-->
+<!--    } else {-->
+<!--      video.pause();-->
+<!--    }-->
+<!--  });-->
+
+<!--  button.addEventListener('click', () => {-->
+<!--    video.muted = !video.muted;-->
+<!--    button.textContent = video.muted ? 'Turn Sound On' : 'Turn Sound Off';-->
+<!--  });-->
+<!--</script>-->
+
+
 <section class="hero teaser">
   <div class="container is-max-desktop">
-    <div class="hero-body">
+    <div class="hero-body" style="display: flex; flex-direction: column; align-items: center;">
       <!-- 插入视频 -->
-      <video id="teaser" muted loop playsinline height="100%">
+      <video id="teaser" muted loop playsinline height="100%" style="cursor: pointer;">
         <source src="static/videos/teaser.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
-      <h2 class="subtitle has-text-centered">
+      <h2 class="subtitle has-text-centered" style="font-size: 14px; margin-top: 5px; margin-bottom: 2px;">
+        Click the left mouse button to play the video
       </h2>
-      <button id="toggle-sound" style="margin-top: -10 px;">Turn Sound On</button>
+      <button id="toggle-sound" style="font-size: 16px; margin-top: 5px;">
+        Turn Sound On
+      </button>
     </div>
   </div>
 </section>
@@ -119,7 +156,10 @@
   });
 </script>
 
-<section class="section">
+
+
+
+<section class="section" style="margin-top: 10px;">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
@@ -144,19 +184,19 @@
           <strong style="color:#2f5faf;">How we accurately estimate a multi-dimensional PSF :</strong>
           <ul>
             <li> Two-step PSF estimation framework. The first step is dedicated to learning spatially variant monochromatic aberration by aligning with the measured spatial frequency response curves. The second step focuses on learning PSF shifts across channels, utilizing the measured chromatic area difference data.</li>
-          <figure style="text-align:center;">
-            <img id="ablation" src="static/images/pipeline.png" alt="Ablation Image" style="width:120%; height: auto;">
-            <figcaption style="font-size:0.9em; color:#555;">
-              Diagram of the proposed two-step PSF estimation framework.
-            </figcaption>
-          </figure>
+<!--          <figure style="text-align:center;">-->
+<!--            <img id="ablation" src="static/images/pipeline.png" alt="Ablation Image" style="width:120%; height: auto;">-->
+<!--            <figcaption style="font-size:0.9em; color:#555;">-->
+<!--              Diagram of the proposed two-step PSF estimation framework.-->
+<!--            </figcaption>-->
+<!--          </figure>-->
             <li> A novel wavefront-based PSF model that simplifies optimization and improves estimation accuracy. In the Seidel PSF model (left), the spherical aberration basis creates a circular PSF with 360° blur, causing identical SFR in the 0° and 90° directions, resulting in gradient conflicts. Our model addresses this by affecting the SFR in one direction, allowing independent adjustment of coefficients to better match the measured SFR. </li>
-          <figure style="text-align:center;">
-            <img id="ablation" src="static/images/wf_basis.png" alt="Ablation Image" style="width: 100%; height: auto;">
-            <figcaption style="font-size:0.9em; color:#555;">
-              A toy example showing how the proposed PSF model improves estimation accuracy.
-            </figcaption>
-          </figure>
+<!--          <figure style="text-align:center;">-->
+<!--            <img id="ablation" src="static/images/wf_basis.png" alt="Ablation Image" style="width: 100%; height: auto;">-->
+<!--            <figcaption style="font-size:0.9em; color:#555;">-->
+<!--              A toy example showing how the proposed PSF model improves estimation accuracy.-->
+<!--            </figcaption>-->
+<!--          </figure>-->
           </ul>
           <p></p>
           <p></p>
@@ -174,7 +214,7 @@
       <ul>
         <li>
           <strong>PSF Accuracy:</strong> As shown below, PSF estimates using Degradation Transfer (ICCV 2021), Fast Two-step (ECCV 2022), and our method, compared with the ground truth PSF.
-          <figure style="text-align:center;">
+          <figure style="text-align:center;margin-bottom: 30px;">
             <img id="psf_comparison" src="static/images/psf_compare.png" alt="PSF Comparison" style="width:110%; height:auto;">
             <figcaption style="font-size:0.9em; color:#555;">
               Estimated PSFs and ground truth.
@@ -183,7 +223,7 @@
         </li>
         <li>
           <strong>Deblurring Performance Comparison:</strong> As shown below, from left to right: sharp output image deblurred by the pre-trained Restormer, using training data synthesized from our estimated PSF; real captured image patches from a custom-built imaging system (Edmund Lens: #63762 and onsemi AR1820HS sensor); deblurred image patches from pre-trained Restormers using data synthesized with estimated PSFs from Degradation Transfer (ICCV 2021), Fast Two-step (ECCV 2022), and our approach. MUSIQ↑ / MANIQA↑ scores are shown in the bottom-right corner.
-          <figure style="text-align:center;margin-top: -50 px;">
+          <figure style="text-align:center;margin-top: 50 px;">
             <img id="deblurring_comparison" src="static/images/exp1.png" alt="Deblurring Comparison" style="width:110%; height:auto;">
             <figcaption style="font-size:0.9em; color:#555;margin-top: -50 px;">
               Performance comparison with state-of-the-art methods on real captures.
