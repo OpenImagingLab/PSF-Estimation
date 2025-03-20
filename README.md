@@ -1,18 +1,4 @@
-<div style="
-background: linear-gradient(135deg, #007CF0, #7928CA);
--webkit-background-clip: text;
-background-clip: text;
-color: transparent;
-font-size: 48px;
-font-weight: bold;
-font-family: Arial, sans-serif;
-text-align: center;
-margin: 40px 0;
-display: inline-block;
-padding: 10px;
-">
-A Physics-Informed Blur Learning Framework for Imaging Systems
-</div>
+# ​**A Physics-Informed Blur Learning Framework for Imaging Systems**
 <p align="center" style="font-size:18px;">
   <a href="https://arxiv.org/abs/2502.11382"><b>📜 Paper</b></a> &nbsp;  
   <a href="https://github.com/OpenImagingLab/PSF-Estimation"><b>💻 Code</b></a> &nbsp;  
