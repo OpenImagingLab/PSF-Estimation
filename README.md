@@ -1,36 +1,76 @@
-# PSF Estimation
-**This repo contains the official implementation for Paper "A Physics-Informed Blur Learning Framework for Imaging Systems".**
-
-### [Project Page](https://openimaginglab.github.io/PSF-Estimation/) | [Paper](https://arxiv.org/abs/2502.11382) 
-
-Liqun Chen, Yuxuan Li, Jun Dai, Jinwei Gu, Tianfan Xue <br>
-arXiv 2025 <br><br>
-
-<div align="center">
-
-![method](./docs/static/images/pipeline.png)
-We introduce a two-step point spread function (PSF) estimation framework. The first step is dedicated to learning spatially variant monochromatic aberration by aligning with the measured spatial frequency response curves. The second step focuses on learning PSF shifts across channels, utilizing the measured chromatic area difference data.
-
+<div style="
+background: linear-gradient(135deg, #007CF0, #7928CA);
+-webkit-background-clip: text;
+background-clip: text;
+color: transparent;
+font-size: 48px;
+font-weight: bold;
+font-family: Arial, sans-serif;
+text-align: center;
+margin: 40px 0;
+display: inline-block;
+padding: 10px;
+">
+A Physics-Informed Blur Learning Framework for Imaging Systems
 </div>
-
-<div align="center">
-
-![results](docs/static/images/exp1.png)
-Performance comparison with state-of-the-art methods on real captures.
-
-</div>
-
-<div align="center">
-
-![results](docs/static/images/exp2.png)
-Deblurring results for an outdoor scene captured with a Canon EOS600D camera.
-
-</div>
+<p align="center" style="font-size:18px;">
+  <a href="https://arxiv.org/abs/2502.11382"><b>📜 Paper</b></a> &nbsp;  
+  <a href="https://github.com/OpenImagingLab/PSF-Estimation"><b>💻 Code</b></a> &nbsp;  
+  <a href="https://openimaginglab.github.io/PSF-Estimation/"><b>🌐 Project Page</b></a>
+</p>
 
 
-<div align="center">
 
-![results](docs/static/images/defocus.png)
-Deblurring results for a defocused scene captured with a Canon EOS 600D at a focal length of 55mm, with a focal distance of 1m and an object distance of 5m, along with the deblurred output (on the right).
-</div>
+[//]: # (Liqun Chen, Yuyao Hu, Jiewen Nie, Tianfan Xue and Jinwei Gu)
 
+## Environment requirements
+The codes was tested on Windows 10, with Python and PyTorch. Required packages:
+- numpy  
+- tqdm
+- python
+- matplotlib
+- torch
+- torchvision
+- pandas
+- opencv-python
+- pyyaml
+
+## File structure
+This repository contains codes for OAE(optical aberration estimation).
+```
+OAE
+|   README.md
+|   main_two_step.py
+|
+|---configs
+|   |   lensname.yaml
+|
+|---sfrmat5_dist
+|
+|---dataset 
+|   |---lensname
+|       |   npy
+| 
+|---input 
+|   |   lensname.xlsx
+| 
+|---model 
+|   |   optics_rgb.py
+|   |   PSF_mlp.py
+| 
+|---results 
+|
+|---utils 
+|   |   tools.py
+|   |   train.py
+```
+`/model` contains the optical aberration model.
+
+`/dataset` includes datasets used for training the optical aberration model.
+
+`/sfrmat5_dist` contains the SFR calculation algorithm, which was downloaded from [ISO 12233](https://www.imaging.org/site/IST/Standards/Digital_Camera_Resolution_Tools/IST/Standards/Digital_Camera_Resolution_Tools.aspx#msw.).
+
+`/results` stores the results, including the PSF map and PSF comparisons.
+
+## Training
+To train an aberration learning model from scratch, run `main.py`. The results will be saved in /results/lensname.

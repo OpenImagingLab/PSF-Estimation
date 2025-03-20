@@ -1,0 +1,16 @@
+filename: '63762BB'
+input_dir: 'input'
+dataset: 'dataset'
+w_sfr: 50
+result: 'result'
+lr: !!float 5e-3
+epochs: 501
+BS: 24
+#noise: shot0_read0
+#h5: 54854_rgb.h5
+loss: l1
+net: ss
+#fov1: 5
+#fov2: 20
+npy: './dataset/63762BB_1/npy'
+interval: 1
