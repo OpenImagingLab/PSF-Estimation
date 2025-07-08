@@ -1,4 +1,4 @@
-function [status, dat, e, sfr50, fitme, esf, nbin, del2] = sfrmat5(io, del, a, npol, wflag, weight)
+function [status, dat, e, sfr50, fitme, esf_all, nbin, del2] = sfrmat5(io, del, a, npol, wflag, weight)
 % MatLab function: sfrmat5 (v1) ISO 12233 4th editincolon: Slanted-edge analysis
 %                               with polynomial edge fitting, 
 % [status, dat, e, fitme, esf, nbin, del2] = sfrmat5(io, del, a, npol, wflag, weight);
@@ -543,7 +543,8 @@ nn2out = round(nn2*freqlim/2);
 nfreq = nn/(2*delimage*nn);    % half-sampling frequency
 
 % **************                Large SFR loop for each color record
-esf = zeros(nn,ncol);  
+esf_all = zeros(nn,ncol);  
+lsf = zeros(nn,ncol);  
 
 if wflag==0
     disp(['Tukey window    alpha = ',num2str(alpha)])
@@ -554,10 +555,13 @@ for color=1:ncol
     % project and bin data in 4x sampled array
     [esf, status] = project2(a(:,:,color), fitme(color,:), nbin);
     esf = esf(:);
+    esf_all(:,color) = esf;
+
 
 % 7. Compute 1-D derivative of super-sampled edge data
 
     c = deriv1(esf', 1, nn, fil2); 
+    
 
     % Added 19 April 2017
     if c(1) == 0
@@ -572,7 +576,7 @@ for color=1:ncol
     
 %   Shift array so it is centered. Not necessary, since we retain only
 %   modulus of the DFT in step 9 (comment next 2 lines to omit).
-    c = cent(c, mm);
+%     c = cent(c, mm);
     mm = nn/2;
     
     if wflag ~=0
@@ -583,6 +587,7 @@ for color=1:ncol
 
 % 8. Apply window to edge-derivative (LSF)
     c = win.*c(:);  
+%     lsf(:,color)= c';
     
     if pflag ==1
         figure;
