@@ -86,10 +86,10 @@ To train an aberration learning model from scratch, run `main.py`. The results w
 
 ## Q & A
 **1. Why is F=5 used as the scaling factor (see scale in optics_rgb.py)?​​**  
-   When extracting a 2D MTF slice from the 3D MTF data (as implemented in slice within tool.py), we intentionally scale the coordinate system by a factor of 5.  
-   This expansion:  
-      Reduces quantization errors during interpolation  
-      Improves numerical precision in the slicing operation  
-  The scaling factor (F=5) is subsequently applied to compensate for this coordinate expansion, ensuring the final results maintain their proper scale and accuracy.  
+<small>When extracting a 2D MTF slice from the 3D MTF data (as implemented in slice within tool.py), we intentionally scale the coordinate system by a factor of 5.  
+This expansion:  
+   - Reduces quantization errors during interpolation  
+   - Improves numerical precision in the slicing operation  
+The scaling factor (F=5) is subsequently applied to compensate for this coordinate expansion, ensuring the final results maintain their proper scale and accuracy.</small>
 
 For any questions, please contact: meview.global@gmail.com  
